@@ -8,12 +8,15 @@ public class DockerJenkinsProjApplication {
 
 	public static void main(String[] args) {
 
-		String envVariableValue = System.getenv("MY_ENV_VARIABLE");
+		String variableName = "MY_ENV_VARIABLE";
+		String variableValue = "I'm tired";
+		System.setProperty(variableName, variableValue);
 
-		if (envVariableValue != null) {
-			System.out.println("Значение переменной окружения MY_ENV_VARIABLE: " + envVariableValue);
+		String envValue = System.getProperty(variableName);
+		if (envValue != null) {
+			System.out.println("Значение переменной окружения " + variableName + ": " + envValue);
 		} else {
-			System.out.println("Переменная окружения MY_ENV_VARIABLE не установлена.");
+			System.out.println("Переменная окружения " + variableName + " не установлена.");
 		}
 	}
 
